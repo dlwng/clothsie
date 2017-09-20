@@ -3,7 +3,7 @@ models:
     external_links:
       -  mysql:db
     volumes:
-      - clothsie:/app
+      - ./:/app
     ports:
       - "8001:8000"
-    command: bash -c "mod_wsgi-express start-server --working-directory clothsie --reload-on-changes /clothsie/wsgi.py"
+    command: bash -c "mod_wsgi-express start-server --working-directory ./ --reload-on-changes ./clothsie/wsgi.py"

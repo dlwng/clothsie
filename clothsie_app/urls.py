@@ -20,11 +20,11 @@ from . import views
 
 urlpatterns = [
     # ex: /clothsie_app/
-    # url(r'^$', views.index, name='index'),
+    url(r'^$', views.index, name='index'),
 
     #ITEMS
     # ex: /clothsie_app/item/5/
-    # url(r'^(?P<item_id>[0-9]+)/$', views.detail, name='detail'),
+    url(r'^(?P<item_id>[0-9]+)/$', views.detail, name='detail'),
     # ex: /clothsie_app/item/5/post_item/
     # url(r'^(?P<item_id>[0-9]+)/post_item/$', views.post_item, name='post_item'),
     # # ex: /clothsie_app/item/5/delete_item/

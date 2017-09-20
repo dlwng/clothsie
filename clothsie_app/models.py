@@ -18,9 +18,12 @@ class Item(models.Model):
 	description = models.TextField()
 	item_id = models.IntegerField()
 
-	# def detail(item_id):
-	# 	return (comments + date_added + date_purchased + zipcode + price + size 
-	# 		+ category + color + brand + description)
+	def detail(Item):
+		return (str(Item.comments) +", " + str(Item.date_added) + ", " + str(Item.date_purchased) + ", " + str(Item.zipcode) + ", " + str(Item.price) +', ' + str(Item.size) 
+		 	+ str(Item.category) + str(Item.color) + str(Item.brand) + str(Item.description))
+
+		# return (str(Item.comments) +", " + str(Item.date_added) + ", " + str(Item.date_purchased) + ", " + str(Item.zipcode) + ", " + str(Item.price) +', ' + str(Item.size) 
+		# 	+ str(Item.category) + str(Item.color) + str(Item.brand) + str(Item.description))
 
 #def delete(item_id):
 
@@ -36,3 +39,5 @@ class User(models.Model):
 	items_selling = models.ForeignKey(Item, related_name='items_selling', on_delete=models.CASCADE)
 	items_sold = models.ForeignKey(Item, related_name='items_sold', on_delete=models.CASCADE)
 #def delete_item(item_id, username):
+
+
