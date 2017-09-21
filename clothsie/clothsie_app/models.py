@@ -19,17 +19,6 @@ class Item(models.Model):
     description = models.TextField()
     item_id = models.IntegerField()
 
-    def detail(Item):
-        return (str(Item.comments) + ", " + str(Item.date_added) + ", " + str(Item.date_purchased) + ", " + str(Item.zipcode) + ", " + str(Item.price) + ', ' + str(Item.size)
-                + str(Item.category) + str(Item.color) + str(Item.brand) + str(Item.description))
-
-        # return (str(Item.comments) +", " + str(Item.date_added) + ", " + str(Item.date_purchased) + ", " + str(Item.zipcode) + ", " + str(Item.price) +', ' + str(Item.size)
-        # 	+ str(Item.category) + str(Item.color) + str(Item.brand) + str(Item.description))
-
-# def delete(item_id):
-
-#	return("Item Deleted")
-
 
 class User(models.Model):
     first_name = models.CharField(max_length=50)
@@ -37,7 +26,9 @@ class User(models.Model):
     username = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
     email = models.EmailField(max_length=100)
-    items_bought = models.ForeignKey(Item, related_name='items_bought', on_delete=models.CASCADE)
-    items_selling = models.ForeignKey(Item, related_name='items_selling', on_delete=models.CASCADE)
-    items_sold = models.ForeignKey(Item, related_name='items_sold', on_delete=models.CASCADE)
-# def delete_item(item_id, username):
+    items_bought = models.ForeignKey(Item, related_name='items_bought',
+                                     on_delete=models.CASCADE, null=True, blank=True)
+    items_selling = models.ForeignKey(
+        Item, related_name='items_selling', on_delete=models.CASCADE, null=True, blank=True)
+    items_sold = models.ForeignKey(Item, related_name='items_sold',
+                                   on_delete=models.CASCADE, null=True, blank=True)

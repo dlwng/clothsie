@@ -22,28 +22,23 @@ urlpatterns = [
     # ex: /clothsie_app/
     url(r'^$', views.index, name='index'),
 
-    #ITEMS
-    # ex: /clothsie_app/item/5/
-    url(r'^(?P<item_id>[0-9]+)/$', views.detail, name='detail'),
-    # ex: /clothsie_app/item/5/post_item/
-    # url(r'^(?P<item_id>[0-9]+)/post_item/$', views.post_item, name='post_item'),
-    # # ex: /clothsie_app/item/5/delete_item/
-    # url(r'^(?P<item_id>[0-9]+)/delete_item/$', views.delete_item, name='delete_item'),
-    # # ex: /clothsie_app/item/5/checkout/
-    # url(r'^(?P<item_id>[0-9]+)/checkout/$', views.checkout, name='checkout'),
-    # # ex: /clothsie_app/item/5/search/
-    # url(r'^(?P<item_id>[0-9]+)/search/$', views.search, name='search'),
+    # ITEMS
+    # ex: /clothsie_app/api/v1/create_item/
+    url(r'^api/v1/create_item/', views.create_item, name='create-item'),
+    # ex: /clothsie_app/api/v1/read_item/5/
+    url(r'^api/v1/read_item/(?P<item_id>[0-9]+)/$', views.read_item, name='read-item'),
+    # ex: /clothsie_app/api/v1/update_item/5/
+    url(r'^api/v1/update_item/(?P<item_id>[0-9]+)/$', views.update_item, name='update-item'),
+    #  ex: /clothsie_app/item/5/delete_item/1/
+    url(r'^api/v1/delete_item/(?P<item_id>\d+)/$', views.delete_item, name='delete-item'),
 
-
-    #USERS
-    # ex: /clothsie_app/users/create_account/
-    # url(r'^create_account/$', views.create_account, name='create_account'),
-    # # ex: /clothsie_app/users/haykidd/create_account/
-    # url(r'^(?P<username>[a-zA-Z]+)/delete_account/$', views.delete_account, name='delete_account'),
-    # # ex: /clothsie_app/users/login/
-    # url(r'^login/$', views.login, name='login'),
-    # # ex: /clothsie_app/users/haykidd/logout/
-    # url(r'^(?P<username>[a-zA-Z]+)/logout/$', views.logout, name='logout'),
+    # USERS
+    # ex: /clothsie_app/api/v1/create_user/
+    url(r'^api/v1/create_user/', views.create_user, name='create-user'),
+    # ex: /clothsie_app/api/v1/read_user/1/
+    url(r'^api/v1/user/(?P<username>[0-9]+)/$', views.read_user, name='read-user'),
+    # ex: /clothsie_app/api/v1/update_user/1/
+    url(r'^api/v1/update_user/(?P<username>[0-9]+)/$', views.update_user, name='update-user'),
+    # ex: /clothsie_app/api/v1/delete_user/2/
+    url(r'^api/v1/delete_user/(?P<username>\d+)/$', views.delete_user, name='delete-user'),
 ]
-
-
