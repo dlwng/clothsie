@@ -6,4 +6,5 @@ models:
       - ./:/app
     ports:
       - "8001:8000"
+    command: bash -c "python manage.py loaddata db.json"
     command: bash -c "mod_wsgi-express start-server --working-directory ./ --reload-on-changes ./clothsie/wsgi.py"
